@@ -1,0 +1,8 @@
+<td>{{ product.name }}</td>
+<td>{{ product.code }}</td>
+<td>{{ product.quantity }}</td>
+<td>
+	<a  href="#" ng-click="edit(product.id)">edit</a> | 
+	<a href="#" ng-click="delete(product.id)">delete</a> |
+	<button style="width: 100px" class="btn btn-success" ng-click="sellProduct(product); ">Sell</button>
+</td>

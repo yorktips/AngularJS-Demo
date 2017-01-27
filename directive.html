@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+	<meta name="York Test.">
+	<meta about="Just a test.">
+    <meta name="viewport" content="width=device-width, initial-scale=1" id="viewport-meta-tag">
+    <title>AngularJS Sample</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+	
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+<!--
+	<script src="js/app.js"></script>
+
+	<script src="services/ProductService.js"></script>
+	<script src="factories/ProductFactory.js"></script>
+	<script src="controller/ProductController.js"></script>
+	<script src="controller/BuyController.js"></script>
+-->
+
+<script>
+var app = angular.module("test",[]);
+
+app.controller("Ctrl1",function($scope){
+    $scope.name = "Harry";
+    $scope.reverseName = function(){
+        $scope.name = $scope.name.split('').reverse().join('');
+    };
+});
+app.directive("myDirective", function(){
+    return {
+        restrict: "EA",
+        scope: true,
+        template: "<div>Your name in directive is  : {{name}}</div>"+
+        "Change your name in directive: <input type='text' ng-model='name' />"
+    };
+});
+
+</script>	
+
+<style>
+h2 {
+    cursor: pointer;
+}
+.directive {
+    border: 5px solid #F5BF6E;;
+    padding: 10px;
+}
+</style>
+
+</head>
+
+<div ng-app="test">
+    
+    <div ng-controller="Ctrl1">
+			
+		<div>Your name is parent is: {{name}}</div>
+        Change your name in parent : <input type='text' ng-model='name' />
+
+<br/>
+<br/>
+
+		<div>Your name is parent is: {{name}}</div>
+        Change your name in parent : <input type='text' ng-model='name' />
+		
+        <h2 ng-click="reverseName()">Hey {{name}}, Click me to reverse your name</h2>
+        <div my-directive class='directive'></div>
+    </div>
+</div>
+
+
+</html>

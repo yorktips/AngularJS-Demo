@@ -1,0 +1,35 @@
+	<form>
+		<h2>Sell Product </h2>
+		<br/>
+		<br/>
+	
+	   <div class="form-group">
+		   <table class="table table-bordered table-striped">
+			 <thead>
+				<tr class="info">
+					<th>Product Name</th>
+					<th>Product Code</th>
+					<th>Sell Quantity</th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr >
+					<td>{{ product.name }}</td>
+					<td>{{ product.code }}</td>
+					<td><input type="number" name="quantity" ng-change="quantityUpdate()" ng-model="product.quantity" required></td>
+				</tr>
+			</tbody>
+
+		 </table>
+	  </div>
+  
+            <div class="alert alert-danger" id="idShowErrorMessage"  ng-show="errMessage.length > 0"class="form-group" >
+            <strong>{{errMessage}}</strong>
+          </div>
+		  
+   <button style="width: 150px" class="btn btn-success" ng-click="sellProduct(product); ">Submit</button> 
+   <button style="width: 150px" class="btn btn-success" ng-click="return(); ">Cancel</button>
+
+  </form>
+
+ 

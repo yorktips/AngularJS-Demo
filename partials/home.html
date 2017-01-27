@@ -1,0 +1,47 @@
+	<form>
+		<h2>AngularJS Sample - York Chen</h2>
+		<br/>
+	<label>Product Name</label> 
+		<input type="text" name="name" ng-model="newproduct.name" placeholder="Input Name Here" required />
+	<label>Product Code</label> 
+		<input type="text" name="code" ng-model="newproduct.code" placeholder="Input Code Here" required />
+	<label>Quantity</label> 
+		<input type="number" name="quantity" ng-model="newproduct.quantity" placeholder="Quantity" required />
+		<br/>
+		<input type="hidden" ng-model="newproduct.id" />
+		<br/>
+		<button style="width: 150px" class="btn btn-success" ng-click="saveProduct(newproduct); ">Save</button>
+	</form>
+	
+	<br/>
+	<br/>
+	
+   <div class="form-group">
+	   <table class="table table-bordered table-striped">
+		 <thead>
+			<tr class="info">
+				<th>Name</th>
+				<th>Code</th>
+				<th>Quantity</th>
+				<th>Action</th>
+			</tr>				
+		</thead>
+		<tbody>
+			<tr ng-repeat="product in products" | orderBy : 'name'">
+				<td>{{ product.name }}</td>
+				<td>{{ product.code }}</td>
+				<td>{{ product.quantity }}</td>
+				<td>
+					<a  href="#" ng-click="edit(product.id)">edit</a> | 
+					<a href="#" ng-click="delete(product.id)">delete</a> |
+					<button style="width: 100px" class="btn btn-success" ng-click="sellProduct(product); ">Sell</button>
+				</td>
+			</tr>
+		</tbody>
+
+	 </table>
+  </div>
+
+
+
+ 
